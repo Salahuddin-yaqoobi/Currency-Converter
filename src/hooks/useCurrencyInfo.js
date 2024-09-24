@@ -15,12 +15,14 @@ function useCurrencyInfo(currency){
        fetch(`https://api.fastforex.io/fetch-multi?from=${currency}&to=${currencies}&api_key=8f5c6e6a1f-9dce363ee7-sk9bts`)
       .then(response => response.json())
       .then(conversionData => {
-        console.log(conversionData); // Contains conversion rates for all currencies
-        setdata(conversionData[currency])
+        console.log(conversionData.results); // Contains conversion rates for all currencies
+        setdata(conversionData.results)
       })
     })
     }, [currency])
     console.log(data);
+    
+    
     return data;  
 }
 
